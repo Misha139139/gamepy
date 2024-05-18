@@ -1,0 +1,39 @@
+import time
+
+
+
+import pygame
+
+pygame.init()
+screen = pygame.display.set_mode((500,700))
+screen.fill((200,100,150))
+
+WHITE = (255,255,255)
+BLACK = (0,0,0)
+RED = (255,0,0)
+red = 0
+green = 255
+time_clock = pygame.time.Clock()
+
+r = pygame.Rect(50,50,100,200)
+
+x = 100
+
+while True:
+    pygame.draw.rect(screen, (WHITE),[100, 150, 20, 100])
+    screen.fill((red,green,250))
+    red += 1
+    green -=1
+    if red == 255:
+        red = 0
+    if green == 0:
+        green = 255
+
+    x = x + 1
+  
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            
+    time_clock.tick(60) 
+    pygame.display.flip()
